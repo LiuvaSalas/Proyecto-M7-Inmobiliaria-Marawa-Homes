@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from usuarios.models import Usuario
 
 
 class Region(models.Model):
@@ -30,7 +31,7 @@ class Inmueble(models.Model):
     comuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
     tipo_inmueble = models.CharField(max_length=50)
     precio_mensual = models.DecimalField(max_digits=10, decimal_places=2)
-    arrendador = models.ForeignKey(User, on_delete=models.CASCADE)
+    arrendador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     arrendada = models.BooleanField(blank=True, null=True)
 
     def __str__(self):
