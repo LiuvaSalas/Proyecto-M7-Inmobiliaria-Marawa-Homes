@@ -28,7 +28,8 @@ def sign_up(request):
 
 def sign_out(request):
     logout(request)
-    return redirect("index")
+    # return redirect("index")
+    return render(request, "logout.html")
 
 
 def log_in(request):
