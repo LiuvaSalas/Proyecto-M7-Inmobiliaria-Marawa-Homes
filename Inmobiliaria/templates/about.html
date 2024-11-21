@@ -1,0 +1,59 @@
+{% extends 'layout/base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'base/assets/css/styles.css' %}"
+    />
+  </head>
+
+  <body>
+    {% block content %}
+    <div class="container text-center py-3">
+      <h1>NOSOTROS</h1>
+    </div>
+    <div class="container contenido_about">
+      <br />
+      <p>
+        En Marawa Homes, creemos que encontrar el lugar perfecto para vivir no
+        debería ser una tarea complicada, sino una experiencia emocionante y
+        segura. Desde nuestros inicios, nos hemos dedicado a conectar a
+        arrendadores y arrendatarios, creando puentes basados en confianza,
+        transparencia y compromiso.
+      </p>
+      <br />
+      <p>
+        Nuestra historia comienza con una simple idea: brindar un servicio
+        inmobiliario que simplifique el proceso de arriendo, eliminando barreras
+        y creando soluciones que beneficien a ambas partes. Inspirados por la
+        diversidad y las necesidades de las personas, trabajamos para ofrecer
+        una plataforma eficiente y humana, que combina tecnología moderna con un
+        toque personal.
+      </p>
+      <br />
+      <p>
+        Hoy, somos más que un simple enlace. Somos un equipo apasionado por
+        transformar la forma en que las personas encuentran y ofrecen hogares.
+        Con una red sólida de propiedades cuidadosamente seleccionadas y un
+        servicio al cliente excepcional, estamos aquí para asegurarnos de que
+        cada experiencia sea
+        <strong>única, confiable y adaptada a tus necesidades</strong>.
+      </p>
+      <br />
+      <p>
+        En <strong>Marawa Homes</strong>, no solo buscamos propiedades, buscamos
+        hogares. Juntos, estamos construyendo una comunidad donde cada puerta
+        que se abre es una oportunidad para comenzar una nueva historia.
+      </p>
+      <hr class="division_nombreflan_descripcion" />
+      <h4>Tu próximo hogar comienza aquí.</h4>
+      <h5>Bienvenido a Marawa Homes.</h5>
+    </div>
+    {% endblock %}
+  </body>
+</html>
