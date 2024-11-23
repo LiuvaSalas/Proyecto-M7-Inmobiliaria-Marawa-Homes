@@ -1,0 +1,60 @@
+/*INICIO*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/*x*/
+
+/*Perfil de Usuario*/
+.modificar_perfil_link a {
+  color: black;
+  text-decoration: none;
+}
+
+/*CARD DE INMUEBLES*/
+/*INDEX - BIENVENIDOS*/
+.card-postre {
+  height: 400px;
+  width: 300px;
+}
+
+.card-postre img {
+  height: 400px;
+  width: auto;
+}
+
+#contenido_texto_card {
+  width: 300px;
+  border: none;
+}
+
+.container_cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.division_nombreflan_descripcion {
+  height: 2px;
+  color: #09abe7;
+  background-color: #09abe7;
+}
+
+.texto_sobreimagen img {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.centrado h3 {
+  background-color: rgba(255, 255, 255, 0.596);
+  font-size: 100px;
+  display: block;
+  position: absolute;
+  top: 220px;
+  left: 0;
+  padding: 110px;
+  width: 100%;
+}

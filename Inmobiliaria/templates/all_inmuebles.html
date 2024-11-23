@@ -12,30 +12,18 @@
 
 <body>
   {% block content %}
-  <div class="texto_sobreimagen d-none d-sm-block d-sm-none d-md-block">
-    <img
-      src="https://cdn.prod.website-files.com/6512e688750a7cc1cad69c76/6539faadb31a397763d52b67_20220418-003-p-1080.webp"
-      class="d-block w-100 img-fluid" alt="">
-    <div class="centrado d-none d-sm-block d-sm-none d-md-block">
-      <h3>Este puede ser tu nuevo Hogar</h3>
-    </div>
-  </div>
   <div id="cards" class=" pb-5">
     <div class="container">
       <div class="row align-items-center justify-content-between">
         <div class="col-10">
-          <h4 class="py-5">Inmuebles Destacados</h4>
-        </div>
-        <div class="col-2">
-          <a class="btn btn-primary" href="/all_inmuebles" role="button">Ver todos <i
-              class="fa-solid fa-arrow-right"></i></a>
+          <h4 class="py-5">Inmuebles Disponibles</h4>
         </div>
       </div>
     </div>
     <div class="container container_cards">
       <!--CARDS de Productos 2-->
       <div class="row">
-        {% for inmuebles in inmuebles_destacados %}
+        {% for inmuebles in inmuebles_disponibles %}
         <div class="col-md-6 col-sm-12 col-xl-4 my-2">
           <div class="card card-postre">
             <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">

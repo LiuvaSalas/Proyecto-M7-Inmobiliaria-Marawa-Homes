@@ -1,0 +1,7 @@
+Region: Región Metropolitana de Santiago
+Nombre: Casa en Ñuñoa, Descripción: Amplia casa con jardín y piscina.
+Nombre: Departamento en Providencia, Descripción: Hermoso departamento con excelente ubicación.
+
+Region: Valparaíso
+Nombre: Cabaña en la Playa, Descripción: Acogedora cabaña en medio de la naturaleza.
+

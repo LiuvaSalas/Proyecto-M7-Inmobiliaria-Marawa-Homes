@@ -15,4 +15,5 @@ class Usuario(models.Model):
     )
 
     def __str__(self):
-        return f"{self.nombres} {self.apellidos}"
+        # return f"{self.nombres} {self.apellidos}"
+        return self.user.username

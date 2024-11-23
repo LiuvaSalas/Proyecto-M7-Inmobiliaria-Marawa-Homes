@@ -1,0 +1,66 @@
+{% extends 'layout/base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!--Enlace archivo css en carpeta static-->
+  <link rel="stylesheet" type="text/css" href="{% static 'base/assets/css/styles.css' %}" />
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <h3 class="py-3">Región Metropolitana </h3>
+    <div class="row">
+      <div class="col-md-12 search">
+        <form method="get">
+          <div id=" custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" class="form-control" placeholder="Busqueda por comuna..." id="name" name="buscar"
+                value="{{request.GET.buscar}}">
+              <span class="input-group-list">
+                <i class="icon icon-search"></i>
+                <button type="submit" class="boton btn-success">Buscar</button>
+              </span>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="cards" class=" pb-5">
+
+    <div class="container container_cards">
+      {% if inmuebles_disponibles %}
+      <!--CARDS de Productos 2-->
+      <div class="row">
+        {% for inmuebles in inmuebles_disponibles %}
+        <div class="col-md-4 col-sm-12 col-12 my-2">
+          <div class="card card-postre" style="width: 18rem;">
+            <img src="{{ inmuebles.imagen_portada }}" class="card-img-top img-responsive" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ inmuebles.nombre }}</h5>
+              <hr class="division_nombreflan_descripcion">
+              <p class="card-text">{{ inmuebles.descripcion }}</p>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {%else%}
+      <h4>No hay inmuebles en esta ubicación</h4>
+      {%endif%}
+    </div>
+
+  </div>
+
+  {% endblock %}
+</body>
+
+</html>

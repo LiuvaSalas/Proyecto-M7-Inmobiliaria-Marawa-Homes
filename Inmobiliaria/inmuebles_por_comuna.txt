@@ -1,0 +1,9 @@
+Comuna: Concón
+Nombre: Cabaña en la Playa, Descripción: Acogedora cabaña en medio de la naturaleza.
+
+Comuna: Ñuñoa
+Nombre: Casa en Ñuñoa, Descripción: Amplia casa con jardín y piscina.
+
+Comuna: Providencia
+Nombre: Departamento en Providencia, Descripción: Hermoso departamento con excelente ubicación.
+

@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Modificar Usuario</title>
+  <!--Conexion a fontawsome-->
+  <script src="https://kit.fontawesome.com/8657e78088.js" crossorigin="anonymous"></script>
+
+  <!--Enlace archivo css en carpeta static-->
+  <link rel="stylesheet" type="text/css" href="{% static 'base/assets/css/styles.css' %}" />
+</head>
+
+<body>
+  {%block content%}
+  <div>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-10">
+          <h1>Hola {{ perfil_usuario.nombres }},</h1>
+        </div>
+        <div class="col-2 align-self-center modificar_perfil_link">
+          <i class="fa-regular fa-pen-to-square"></i><a href="{% url 'modificar_perfil' usuario.username %}">Modificar
+            Perfil</a>
+        </div>
+      </div>
+      <br>
+      <h3>Datos personales</h3>
+      <p><strong>Dirección:</strong> {{ perfil_usuario.direccion }}</p>
+      <p><strong>Telefono Personal:</strong> {{ perfil_usuario.telefono_personal }}</p>
+      <p><strong>Correo Electrónico:</strong> {{ perfil_usuario.correo_electronico }}</p>
+    </div>
+  </div>
+  {%endblock%}
+</body>
+
+</html>
