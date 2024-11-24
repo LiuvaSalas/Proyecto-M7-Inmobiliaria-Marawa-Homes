@@ -35,6 +35,16 @@
   flex-wrap: wrap;
 }
 
+.ubicacion p {
+  font-size: large;
+  font-weight: 500;
+  color: #736d67;
+}
+
+.direccion {
+  height: 60px;
+}
+
 .division_nombreflan_descripcion {
   height: 2px;
   color: #09abe7;
@@ -57,4 +67,19 @@
   left: 0;
   padding: 110px;
   width: 100%;
+}
+.ciudades img {
+  height: 300px;
+}
+
+/*SERVICIO PERSONALIZADO*/
+.servicio_personalizado {
+  background-color: #4a423a;
+  color: #ffff;
+  height: 450px;
+}
+
+.servicio_personalizado hr {
+  width: 350px;
+  color: #e37e18;
 }
