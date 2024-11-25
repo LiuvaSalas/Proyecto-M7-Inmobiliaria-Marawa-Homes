@@ -69,6 +69,7 @@ def perfil_usuario(request, username):
         {"usuario": usuario, "perfil_usuario": perfil_usuario},
     )
 
+@login_required
 def modificar_perfil(request, username):
     usuario = get_object_or_404(User, username=username)
     perfil_usuario = get_object_or_404(Usuario, user=usuario)
@@ -85,3 +86,4 @@ def modificar_perfil(request, username):
         "modificar_perfil.html",
         {"usuario": usuario, "perfil_usuario": perfil_usuario},
     )
+

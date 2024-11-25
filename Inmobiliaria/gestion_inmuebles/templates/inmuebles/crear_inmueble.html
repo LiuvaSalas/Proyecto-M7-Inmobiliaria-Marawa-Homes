@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'base/assets/css/styles.css' %}"
+    />
+  </head>
+
+  <body>
+    {% block content %}
+    <div class="container text-center py-3">
+      <h1>PANEL DE ADMINISTRACIÓN</h1>
+    </div>
+    <div class="container">
+      <p>Crear Inmueble</p>
+      <form action="{% url 'crear_inmueble' %}" method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <!-- Esto mostrará todos los campos del formulario -->
+        <input type="submit" value="Guardar Inmueble" />
+      </form>
+      {% if error %}
+      <p style="color: red">{{ error }}</p>
+      {% endif %}
+    </div>
+    {% endblock %}
+  </body>
+</html>

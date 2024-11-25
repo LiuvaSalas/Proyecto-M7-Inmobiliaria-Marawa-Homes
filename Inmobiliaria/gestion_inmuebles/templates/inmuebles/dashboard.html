@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'base/assets/css/styles.css' %}" />
+</head>
+
+<body>
+  {% block content %}
+  <div class="container text-center py-3">
+    <h1>PANEL DE ADMINISTRACIÓN</h1>
+  </div>
+
+  <div class="container">
+    <h3>Estadísticas de Inmuebles</h3>
+    <p><strong>Total de Inmuebles:</strong> {{ total_inmuebles }}</p>
+    <p><strong>Inmuebles Arrendados:</strong> {{ inmuebles_arrendados }}</p>
+    <p>
+      <strong>Inmuebles Sin Arrendar:</strong> {{ inmuebles_sin_arrendar }}
+    </p>
+
+    <h4>Gráfico de Inmuebles Arrendados vs Sin Arrendar</h4>
+    <img src="data:image/png;base64,{{ graph_inmuebles }}" alt="Gráfico de Inmuebles" />
+  </div>
+  {% endblock %}
+</body>
+
+</html>
