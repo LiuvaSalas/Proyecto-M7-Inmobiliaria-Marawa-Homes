@@ -14,11 +14,10 @@
   {% block content %}
   <!--IMAGEN MOTIVACIONAL-->
   <div class="texto_sobreimagen d-none d-sm-block d-sm-none d-md-block">
-    <img
-      src="https://cdn.prod.website-files.com/6512e688750a7cc1cad69c76/6539faadb31a397763d52b67_20220418-003-p-1080.webp"
-      class="d-block w-100 img-fluid" alt="">
+    <img src="https://i.pinimg.com/736x/82/74/14/827414e16fd6f79bbcc41cc2bed85d8d.jpg" class="d-block w-100 img-fluid"
+      alt="">
     <div class="centrado d-none d-sm-block d-sm-none d-md-block">
-      <h3>Este puede ser tu nuevo Hogar</h3>
+      <h3>Este puede ser tu nuevo hogar</h3>
     </div>
   </div>
   <!--CARDS INMUEBLES DESTACADOS-->
@@ -47,7 +46,9 @@
                 {{inmuebles.comuna}} </p>
             </div>
             <div class="direccion">
+              <h5 class="card-title" style="color: #1abc9c;">$ {{ inmuebles.precio_mensual }}</h5>
               <h5 class="card-title">{{ inmuebles.direccion }}</h5>
+
             </div>
             <div class="container">
               <div class="row">
@@ -73,44 +74,44 @@
       </div>
     </div>
 
-    <!--SERVICIO PERSONALIZADO-->
-    <div class="servicio_personalizado">
+    <!--SERVICIO PERSONALIZADO LARGE-->
+    <div class="servicio_personalizado d-none d-sm-block d-sm-none d-md-block">
       <div class="container pt-5">
         <div class="row">
-          <div class="col">
-            <h2>SERVICIO CONFIABLE</h2>
-            <hr>
+          <div class="col ps-5">
+            <h2>SERVICIO CONFIABLE <i class="fa-solid fa-award text-center fa-2xl"></i></h2>
           </div>
-          <div class="col-4">
+          <div class="col-4 pe-5 descripcion_marawa">
             <h5>En MarawaHomes los arrendadores tienen un largo camino de experiencia verificada para darle a sus
               clientes a encontrar su hogar ideal, asegurando un servicio personal y eficiente.</h5>
           </div>
         </div>
-        <div class="container pt-5">
+        <hr>
+        <div class="container pt-3">
           <div class="row">
-            <div class="col-4">
+            <div class="col-4 px-5">
               <div class="row py-4">
                 <i class="fa-solid fa-user-tie text-center fa-2xl"></i>
               </div>
               <div class="row">
-                <h5>Industria Profesional</h5>
+                <h5 class="text-center">Industria Profesional</h5>
                 <p>Nuestros arrendadores profesionales, estan equipados con la experiencia y el conocimiento necesario
                   para manejar tu interes algun inmueble a lo largo de todo Chile.</p>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-4 px-5">
               <div class="row py-4"><i class="fa-solid fa-award text-center fa-2xl"></i></div>
               <div class="row">
-                <h5>Expertos en el Mercado</h5>
+                <h5 class="text-center">Expertos en el Mercado</h5>
                 <p>MarawaHomes, no solo tiene su sede en Santiago de Chile: conocemos todo el territorio y podemos
                   brindar
                   orientacion sobre vecindarios en cualquier comuna del país.</p>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-4 px-5">
               <div class="row py-4"><i class="fa-solid fa-ranking-star text-center fa-2xl"></i></div>
               <div class="row">
-                <h5>Compromiso Integral</h5>
+                <h5 class="text-center">Compromiso Integral</h5>
                 <p>Queremos que tu experiencia encontrando un nuevo hogar, te haga sentir cómodo y confiado, por lo que
                   puedes contactar a nuestro servicio al cliente en cualquier momento.</p>
               </div>
@@ -119,42 +120,70 @@
         </div>
       </div>
     </div>
-    <!--CIUDADES-->
-    <div class="container ciudades">
-      <h4 class="text-center">CIUDADES</h4>
-      <div class="row">
-        <!--Santiago-->
-        <div class="col-8">
-          <h4 class="text-center">Santiago</h4>
-          <img
-            src="https://www.diariodesantiago.es/wp-content/uploads/2024/05/vista-panoramica-de-la-ciudad-de-santiago-de-chile-2024-05-01.jpg"
-            class="responsive w-100" alt="">
-        </div>
-        <!--Viña-->
-        <div class="col-4">
-          <h4 class="text-center">Viña</h4>
-          <img src="https://www.playasdechile.com/wp-content/uploads/2023/05/playas-vina-del-mar.jpg"
-            class="responsive w-100" alt="">
+    <!--SERVICIO PERSONALIZADO SMALL-->
+    <div class="servicio_personalizado_small d-sm-none d-lg-none d-xl-none">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 text-center">
+            <h2>SERVICIO CONFIABLE <i class="fa-solid fa-award text-center fa-2xl"></i></h2>
+          </div>
+          <div class="col-sm-12 col-md-12 pt-3 descripcion_marawa">
+            <h5>En MarawaHomes los arrendadores tienen un largo camino de experiencia verificada para darle a sus
+              clientes a encontrar su hogar ideal, asegurando un servicio personal y eficiente.</h5>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <!--La Serena-->
-        <div class="col-4">
-          <h4 class="text-center">La Serena</h4>
-          <img src="https://www.playasdechile.com/wp-content/uploads/2023/09/playa-el-faro-la-serena.jpg"
-            class="responsive w-100" alt="">
+    </div>
+    <!--CIUDADES-->
+    <div style="background-color: #17202a;">
+      <div class="container text-light py-5 ciudades">
+        <div class="text-center pb-5">
+          <h2>PRINCIPALES CIUDADES</h2>
         </div>
-        <!--Concepcion-->
-        <div class="col-4">
-          <h4 class="text-center">Concepción</h4>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Gran_Concepci%C3%B3n.jpg"
-            class="responsive w-100" alt="">
+        <div class="row py-3">
+          <!--Santiago-->
+          <div class="col-8">
+            <h4 class="text-center">Santiago</h4>
+            <a href="/all_inmuebles/?buscar=RM">
+              <img
+                src="https://www.diariodesantiago.es/wp-content/uploads/2024/05/vista-panoramica-de-la-ciudad-de-santiago-de-chile-2024-05-01.jpg"
+                class="responsive w-100" alt="">
+            </a>
+          </div>
+          <!--Viña-->
+          <div class="col-4">
+            <h4 class="text-center">Viña</h4>
+            <a href="/all_inmuebles/?buscar=vi%C3%B1a">
+              <img src="https://www.playasdechile.com/wp-content/uploads/2023/05/playas-vina-del-mar.jpg"
+                class="responsive w-100" alt="">
+            </a>
+          </div>
         </div>
-        <!--Arica-->
-        <div class="col-4">
-          <h4 class="text-center">Arica</h4>
-          <img src="https://chileestuyo.cl/wp-content/uploads/2020/03/Morro-de-Arica.jpg" class="responsive w-100"
-            alt="">
+        <div class="row">
+          <!--La Serena-->
+          <div class="col-4">
+            <h4 class="text-center">La Serena</h4>
+            <a href="/all_inmuebles/?buscar=La+Serena">
+              <img src="https://www.playasdechile.com/wp-content/uploads/2023/09/playa-el-faro-la-serena.jpg"
+                class="responsive w-100" alt="">
+            </a>
+          </div>
+          <!--Concepcion-->
+          <div class="col-4">
+            <h4 class="text-center">Concepción</h4>
+            <a href="/all_inmuebles/?buscar=Concepci%C3%B3n">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Gran_Concepci%C3%B3n.jpg"
+                class="responsive w-100" alt="">
+            </a>
+          </div>
+          <!--Arica-->
+          <div class="col-4">
+            <h4 class="text-center">Arica</h4>
+            <a href="/all_inmuebles/?buscar=Arica">
+              <img src="https://chileestuyo.cl/wp-content/uploads/2020/03/Morro-de-Arica.jpg" class="responsive w-100"
+                alt="">
+            </a>
+          </div>
         </div>
       </div>
     </div>

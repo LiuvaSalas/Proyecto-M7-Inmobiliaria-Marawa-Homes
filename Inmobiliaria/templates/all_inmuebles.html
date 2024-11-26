@@ -20,7 +20,28 @@
         </div>
       </div>
     </div>
+    <!--Buscador-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 search">
+          <form method="get">
+            <div id=" custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="text" class="form-control" placeholder="Busqueda por comuna..." id="name" name="buscar"
+                  value="{{request.GET.buscar}}">
+                <span class="input-group-list">
+                  <i class="icon icon-search"></i>
+                  <button type="submit" class="boton btn-success">Buscar</button>
+                </span>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <div class="container container_cards">
+      {% if inmuebles_disponibles %}
       <!--CARDS de Productos 2-->
       <div class="row">
         {% for inmuebles in inmuebles_disponibles %}
@@ -40,7 +61,12 @@
           </div>
         </div>
         {% endfor %}
-        {% endblock %}
+      </div>
+      {%else%}
+      <h4>No hay inmuebles en esta ubicación</h4>
+      {%endif%}
+    </div>
+    {% endblock %}
 </body>
 
 </html>

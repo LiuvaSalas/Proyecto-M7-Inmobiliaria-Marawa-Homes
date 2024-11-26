@@ -42,7 +42,7 @@
 }
 
 .direccion {
-  height: 60px;
+  height: 100px;
 }
 
 .division_nombreflan_descripcion {
@@ -55,31 +55,44 @@
   position: relative;
   display: block;
   text-align: center;
-  width: 100%;
+  width: auto;
+  height: 500px;
 }
 
 .centrado h3 {
-  background-color: rgba(255, 255, 255, 0.596);
-  font-size: 100px;
+  /*background-color: rgba(255, 255, 255, 0.596);*/
+  text-align: center;
+  font-size: 70px;
+  font-weight: 300;
   display: block;
   position: absolute;
-  top: 220px;
+  top: 130px;
   left: 0;
   padding: 110px;
   width: 100%;
 }
+
 .ciudades img {
   height: 300px;
 }
 
 /*SERVICIO PERSONALIZADO*/
 .servicio_personalizado {
-  background-color: #4a423a;
+  background-color: #5a6c57;
   color: #ffff;
-  height: 450px;
+  height: 550px;
 }
 
-.servicio_personalizado hr {
-  width: 350px;
-  color: #e37e18;
+.servicio_personalizado p {
+  text-align: justify;
+  font-size: large;
+}
+
+.descripcion_marawa h5 {
+  text-align: justify;
+}
+
+.servicio_personalizado_small {
+  background-color: #5a6c57;
+  color: #ffff;
 }
