@@ -33,42 +33,47 @@
         </div>
       </div>
     </div>
-    <div class="container container_cards">
+    <div class="container container_cards" id="container_cards">
       <div class="row">
         {% for inmuebles in inmuebles_destacados %}
         <div class="col-md-6 col-sm-12 col-xl-4 my-2 px-4 justify-content-center">
-          <div class="card card-postre">
-            <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">
-          </div>
-          <div class="card pb-5" id="contenido_texto_card">
-            <div class="ubicacion pt-2">
-              <p><i class="fa-solid fa-location-dot"></i> {{inmuebles.region.identificador}}, Región.
-                {{inmuebles.comuna}} </p>
+          <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
+            <div class="card card-postre">
+              <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">
             </div>
-            <div class="direccion">
-              <h5 class="card-title" style="color: #1abc9c;">$ {{ inmuebles.precio_mensual }}</h5>
-              <h5 class="card-title">{{ inmuebles.direccion }}</h5>
+          </a>
+          <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
+            <div class="card pb-5" id="contenido_texto_card">
+              <div class="ubicacion pt-2">
+                <p><i class="fa-solid fa-location-dot"></i> {{inmuebles.region.identificador}}, Región.
+                  {{inmuebles.comuna}} </p>
+              </div>
+              <div class="direccion">
+                <h5 class="card-title" style="color: #1abc9c;">$ {{ inmuebles.precio_mensual }}</h5>
+                <h5 class="card-title">{{ inmuebles.direccion }}</h5>
 
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-3">
-                  <button class="btn btn-light" type="submit" style="width:70px;"> <i class=" fa-solid fa-bed"></i>
-                    {{inmuebles.habitaciones }} </button>
-                </div>
-                <div class="col-3">
-                  <button class="btn btn-light" type="submit" style="width:70px;"> <i class="fa-solid fa-bath"></i>
-                    {{inmuebles.banos}}
-                  </button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-light" type="submit" style="width:100px;"> <i class="fa-solid fa-compress"></i>
-                    {{inmuebles.m2_construidos }}
-                  </button>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-3">
+                    <button class="btn btn-light" type="submit" style="width:70px;"> <i class=" fa-solid fa-bed"></i>
+                      {{inmuebles.habitaciones }} </button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light" type="submit" style="width:70px;"> <i class="fa-solid fa-bath"></i>
+                      {{inmuebles.banos}}
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-light" type="submit" style="width:100px;"> <i
+                        class="fa-solid fa-compress"></i>
+                      {{inmuebles.m2_construidos }}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
         {% endfor %}
       </div>

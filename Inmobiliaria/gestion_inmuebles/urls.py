@@ -16,4 +16,9 @@ urlpatterns = [
         name="borrarInmueble",
     ),
     path("dashboard/", views.dashboard, name="dashboard"),
+    path(
+        "caracteristica_inmueble/<int:inmueble_id>",
+        views.caracteristica_inmueble,
+        name="caracteristica_inmueble",
+    ),
 ]

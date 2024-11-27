@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from .models import Inmueble
 from .forms import Formulario_Actualizacion_Inmuebles, Formulario_Gestion_Inmuebles
+from Inmobiliaria.views import index
 
 
 def home(request):
@@ -81,6 +82,19 @@ def borrar_inmueble(request, inmueble_id):
     inmueble = get_object_or_404(Inmueble, pk=inmueble_id)
     inmueble.delete()
     return redirect("listar_inmuebles")
+
+
+def caracteristica_inmueble(request, inmueble_id):
+    if request.method == "GET":
+        inmueble = get_object_or_404(Inmueble, pk=inmueble_id)
+        contexto = {"inmueble": inmueble}
+        return render(
+            request,
+            "inmuebles/caracteristica_inmueble.html",
+            contexto,
+        )
+    else:
+        redirect("index")
 
 
 def dashboard(request):

@@ -58,6 +58,12 @@ class Inmueble(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     ultima_modificacion = models.DateTimeField(auto_now=True)
     imagen_portada = models.URLField(default=None, null=True, blank=True)
+    imagen1 = models.URLField(default=None, null=True, blank=True)
+    imagen2 = models.URLField(default=None, null=True, blank=True)
+    imagen3 = models.URLField(default=None, null=True, blank=True)
+    imagen4 = models.URLField(default=None, null=True, blank=True)
+    imagen5 = models.URLField(default=None, null=True, blank=True)
+
 
     def __str__(self):
         return self.nombre

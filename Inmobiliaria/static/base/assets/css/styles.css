@@ -35,6 +35,10 @@
   flex-wrap: wrap;
 }
 
+.container_cards a {
+  text-decoration: none;
+}
+
 .ubicacion p {
   font-size: large;
   font-weight: 500;
@@ -95,4 +99,15 @@
 .servicio_personalizado_small {
   background-color: #5a6c57;
   color: #ffff;
+}
+
+/*CARACTERISTICA INMUEBLE*/
+#carouselExample img {
+  max-height: 450px;
+  justify-self: center;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
 }

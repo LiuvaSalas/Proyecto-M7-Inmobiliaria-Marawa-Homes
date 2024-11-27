@@ -1,0 +1,113 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!--Enlace archivo css en carpeta static-->
+  <link rel="stylesheet" type="text/css" href="{% static 'base/assets/css/styles.css' %}" />
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div>
+      <h4> {{inmueble.comuna}} </h4>
+      <h6> {{inmueble.direccion}} </h6>
+      <h6> {{inmueble.precio_mensual}} </h6>
+      <p>Fecha de publicación {{inmueble.fecha_creacion}} </p>
+    </div>
+  </div>
+  <hr>
+  <!--Carruser fotos del inmueble-->
+  <div class="container">
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{ inmueble.imagen_portada }}" class="d-block w-auto img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ inmueble.imagen1 }}" class="d-block w-auto img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ inmueble.imagen2 }}" class="d-block w-auto img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ inmueble.imagen3 }}" class="d-block w-auto img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ inmueble.imagen4 }}" class="d-block w-auto img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ inmueble.imagen5 }}" class="d-block w-auto img-fluid" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" style="color: black;">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <p>Última modificación {{inmueble.ultima_modificacion}} </p>
+  </div>
+  <!--Descripcion del inmueble-->
+  <div class="container pt-5">
+    <h5>Descripción del Inmueble</h5>
+    <hr>
+    <p> {{inmueble.descripcion}} </p>
+    <ul>
+      <li>
+        Región: {{inmueble.region}}
+      </li>
+      <li>
+        Comuna: {{inmueble.comuna}}
+      </li>
+      <li>
+        Dirección: {{inmueble.direccion}}
+      </li>
+      <li>
+        m2 Totales: {{inmueble.m2_totales}}
+      </li>
+      <li>
+        m2 Construidos: {{inmueble.m2_construidos}}
+      </li>
+      <li>
+        N° de habitaciones: {{inmueble.habitaciones}}
+      </li>
+      <li>
+        N° de Baños: {{inmueble.banos}}
+      </li>
+      <li>
+        Precio mensual: {{inmueble.precio_mensual}}
+      </li>
+    </ul>
+  </div>
+  <!--Datos de Arrendador-->
+  <div class="container">
+    <h6>Datos de Arrendador</h6>
+    <ul>
+      <li>
+        Nombre: {{inmueble.arrendador.nombres}} {{inmueble.arrendador.apellidos}}
+      </li>
+      <li>
+        Telefono de Contacto: {{inmueble.arrendador.telefono_personal}} <a
+          href="https://api.whatsapp.com/send?phone=+56936675540&text=Hola%2C+me+interesa+tu+departamento+en+%7B%7Binmueble.direccion%7D%7D%F0%9F%98%80"><i
+            class="fa-brands fa-whatsapp"></i></a>
+      </li>
+      <li>
+        Correo Electrónico: {{inmueble.arrendador.correo_electronico}} <a href="mailto:matias@gmail.com"><i
+            class="fa-regular fa-envelope"></i></a>
+      </li>
+    </ul>
+  </div>
+
+  {% endblock %}
+</body>
+
+</html>
