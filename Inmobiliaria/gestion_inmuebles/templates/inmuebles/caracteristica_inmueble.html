@@ -97,12 +97,11 @@
       </li>
       <li>
         Telefono de Contacto: {{inmueble.arrendador.telefono_personal}} <a
-          href="https://api.whatsapp.com/send?phone=+56936675540&text=Hola%2C+me+interesa+tu+departamento+en+%7B%7Binmueble.direccion%7D%7D%F0%9F%98%80"><i
-            class="fa-brands fa-whatsapp"></i></a>
+          href="{{ inmueble.arrendador.enlace_whatsapp }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
       </li>
       <li>
-        Correo Electrónico: {{inmueble.arrendador.correo_electronico}} <a href="mailto:matias@gmail.com"><i
-            class="fa-regular fa-envelope"></i></a>
+        Correo Electrónico: {{inmueble.arrendador.correo_electronico}} <a href="{{ inmueble.arrendador.enlace_correo }}"
+          target="_blank"><i class="fa-regular fa-envelope"></i></a>
       </li>
     </ul>
   </div>

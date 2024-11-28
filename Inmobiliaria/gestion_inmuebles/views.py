@@ -5,9 +5,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from .models import Inmueble
-from .forms import Formulario_Actualizacion_Inmuebles, Formulario_Gestion_Inmuebles
+from .models import Inmueble, ContactForm
+from .forms import (
+    Formulario_Actualizacion_Inmuebles,
+    Formulario_Gestion_Inmuebles,
+    ContactFormForm,
+)
 from Inmobiliaria.views import index
+from django.http import HttpResponseRedirect
 
 
 def home(request):
@@ -128,3 +133,19 @@ def dashboard(request):
     }
 
     return render(request, "inmuebles/dashboard.html", contexto)
+
+
+def envio_exitoso(request):
+    return render(request, "envio_exitoso.html", {})
+
+
+def contacto(request):
+    if request.method == "POST":
+        form = ContactFormForm(request.POST)
+        if form.is_valid():
+            contact_form = ContactForm.objects.create(**form.cleaned_data)
+            return HttpResponseRedirect("/envio_exitoso")
+    else:
+        form = ContactFormForm()
+
+    return render(request, "contacto.html", {"form": form})

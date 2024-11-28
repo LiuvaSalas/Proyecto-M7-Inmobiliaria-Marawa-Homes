@@ -6,33 +6,55 @@
 }
 /*x*/
 
-/*Perfil de Usuario*/
-.modificar_perfil_link a {
-  color: black;
-  text-decoration: none;
+/*INDEX - BIENVENIDOS*/
+.texto_sobreimagen img {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: auto;
+  height: 500px;
+}
+
+.centrado h3 {
+  /*background-color: rgba(255, 255, 255, 0.596);*/
+  text-align: center;
+  font-size: 70px;
+  font-weight: 300;
+  display: block;
+  position: absolute;
+  top: 250px;
+  left: 0;
+  width: 100%;
 }
 
 /*CARD DE INMUEBLES*/
-/*INDEX - BIENVENIDOS*/
 .card-postre {
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 370px;
 }
 
 .card-postre img {
-  height: 400px;
+  height: 300px;
   width: auto;
+  border-radius: 0%;
 }
 
 #contenido_texto_card {
-  width: 300px;
+  width: 370px;
   border: none;
+  border-radius: 0%;
+  padding: 5%;
 }
 
 .container_cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+#division_color {
+  width: 100%;
+  background: linear-gradient(#ffff 50%, #5a6c57 50%);
 }
 
 .container_cards a {
@@ -55,29 +77,10 @@
   background-color: #09abe7;
 }
 
-.texto_sobreimagen img {
-  position: relative;
-  display: block;
-  text-align: center;
-  width: auto;
-  height: 500px;
-}
-
-.centrado h3 {
-  /*background-color: rgba(255, 255, 255, 0.596);*/
-  text-align: center;
-  font-size: 70px;
-  font-weight: 300;
-  display: block;
-  position: absolute;
-  top: 130px;
-  left: 0;
-  padding: 110px;
-  width: 100%;
-}
-
+/*CIUDADES*/
 .ciudades img {
   height: 300px;
+  border-radius: 1%;
 }
 
 /*SERVICIO PERSONALIZADO*/
@@ -110,4 +113,21 @@
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
   filter: invert(100%);
+}
+
+/*Perfil de Usuario*/
+.modificar_perfil_link a {
+  color: black;
+  text-decoration: none;
+}
+
+/*FOOTER*/
+.explorar_footer p a {
+  text-decoration: none;
+  color: black;
+  font-size: small;
+}
+
+.contacto_footer p {
+  font-size: small;
 }

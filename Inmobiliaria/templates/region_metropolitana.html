@@ -13,7 +13,7 @@
 <body>
   {% block content %}
   <div class="container">
-    <h3 class="py-3">Región Metropolitana </h3>
+    <h3 class="py-3">RM - Región Metropolitana </h3>
     <div class="row">
       <div class="col-md-12 search">
         <form method="get">
@@ -40,16 +40,44 @@
       <!--CARDS de Productos 2-->
       <div class="row">
         {% for inmuebles in inmuebles_disponibles %}
-        <div class="col-md-4 col-sm-12 col-12 my-2">
-          <div class="card card-postre" style="width: 18rem;">
-            <img src="{{ inmuebles.imagen_portada }}" class="card-img-top img-responsive" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{ inmuebles.nombre }}</h5>
-              <hr class="division_nombreflan_descripcion">
-              <p class="card-text">{{ inmuebles.descripcion }}</p>
-
+        <div class="col-md-6 col-sm-12 col-xl-4 my-2 px-4 justify-content-center">
+          <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
+            <div class="card card-postre">
+              <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">
             </div>
-          </div>
+          </a>
+          <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
+            <div class="card pb-5" id="contenido_texto_card">
+              <div class="ubicacion pt-2">
+                <p><i class="fa-solid fa-location-dot"></i> {{inmuebles.region.identificador}}, Región.
+                  {{inmuebles.comuna}} </p>
+              </div>
+              <div class="direccion">
+                <h5 class="card-title" style="color: #1abc9c;">$ {{ inmuebles.precio_mensual }}</h5>
+                <h5 class="card-title">{{ inmuebles.direccion }}</h5>
+
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-3">
+                    <button class="btn btn-light" type="submit" style="width:70px;"> <i class=" fa-solid fa-bed"></i>
+                      {{inmuebles.habitaciones }} </button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light" type="submit" style="width:70px;"> <i class="fa-solid fa-bath"></i>
+                      {{inmuebles.banos}}
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-light" type="submit" style="width:100px;"> <i
+                        class="fa-solid fa-compress"></i>
+                      {{inmuebles.m2_construidos }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
         {% endfor %}
       </div>

@@ -22,178 +22,187 @@
     </div>
   </div>
   <!--CARDS INMUEBLES DESTACADOS-->
-  <div id="cards" class=" pb-5">
-    <div class="container">
-      <div class="row align-items-center justify-content-between">
-        <div class="col-10">
-          <h3 class="py-5 ps-5">INMUEBLES DESTACADOS</h3>
-        </div>
-        <div class="col-2">
-          <a class="btn btn-light text-bg-light" href="/all_inmuebles" role="button">Ver todos <i
-              class="fa-solid fa-arrow-right"></i></a>
+  <div id="division_color">
+    <div id="cards" class=" pb-5">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-7">
+            <h3 class="py-5 ps-3">POPULARES</h3>
+          </div>
+          <div class="col-5">
+            <a class="btn btn-light text-black" style="width: 100%; background-color: #fff; border: none;"
+              href="/all_inmuebles" role="button">Explorar
+              todos los imuebles
+              <i class="fa-solid fa-arrow-right-long"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container container_cards" id="container_cards">
-      <div class="row">
-        {% for inmuebles in inmuebles_destacados %}
-        <div class="col-md-6 col-sm-12 col-xl-4 my-2 px-4 justify-content-center">
-          <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
-            <div class="card card-postre">
-              <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">
-            </div>
-          </a>
-          <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
-            <div class="card pb-5" id="contenido_texto_card">
-              <div class="ubicacion pt-2">
-                <p><i class="fa-solid fa-location-dot"></i> {{inmuebles.region.identificador}}, Región.
-                  {{inmuebles.comuna}} </p>
+      <div class="container container_cards" id="container_cards">
+        <div class="row">
+          {% for inmuebles in inmuebles_destacados %}
+          <div class="col-md-6 col-sm-12 col-xl-4 my-2 px-4 justify-content-center">
+            <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
+              <div class="card card-postre">
+                <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">
               </div>
-              <div class="direccion">
-                <h5 class="card-title" style="color: #1abc9c;">$ {{ inmuebles.precio_mensual }}</h5>
-                <h5 class="card-title">{{ inmuebles.direccion }}</h5>
+            </a>
+            <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
+              <div class="card pb-5" id="contenido_texto_card">
+                <div class="ubicacion pt-2">
+                  <p><i class="fa-solid fa-location-dot"></i> {{inmuebles.region.identificador}}, Región.
+                    {{inmuebles.comuna}} </p>
+                </div>
+                <div class="direccion">
+                  <h5 class="card-title" style="color: #1abc9c;">$ {{ inmuebles.precio_mensual }}</h5>
+                  <h5 class="card-title">{{ inmuebles.direccion }}</h5>
 
-              </div>
-              <div class="container">
-                <div class="row">
-                  <div class="col-3">
-                    <button class="btn btn-light" type="submit" style="width:70px;"> <i class=" fa-solid fa-bed"></i>
-                      {{inmuebles.habitaciones }} </button>
-                  </div>
-                  <div class="col-3">
-                    <button class="btn btn-light" type="submit" style="width:70px;"> <i class="fa-solid fa-bath"></i>
-                      {{inmuebles.banos}}
-                    </button>
-                  </div>
-                  <div class="col-4">
-                    <button class="btn btn-light" type="submit" style="width:100px;"> <i
-                        class="fa-solid fa-compress"></i>
-                      {{inmuebles.m2_construidos }}
-                    </button>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-3">
+                      <button class="btn btn-light" type="submit" style="width:70px;"> <i class=" fa-solid fa-bed"></i>
+                        {{inmuebles.habitaciones }} </button>
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-light" type="submit" style="width:70px;"> <i class="fa-solid fa-bath"></i>
+                        {{inmuebles.banos}}
+                      </button>
+                    </div>
+                    <div class="col-4">
+                      <button class="btn btn-light" type="submit" style="width:100px;"> <i
+                          class="fa-solid fa-compress"></i>
+                        {{inmuebles.m2_construidos }}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--SERVICIO PERSONALIZADO LARGE-->
+  <div class="servicio_personalizado d-none d-sm-block d-sm-none d-md-block">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col ps-5">
+          <h2>SERVICIO CONFIABLE <i class="fa-solid fa-award text-center fa-2xl"></i></h2>
+          <h6><i class="fa-solid fa-angles-right"></i> Ana Monica Fuentes</h6>
+          <h6>Fundadora, MarawaHomes</h6>
+        </div>
+        <div class="col-4 pe-5 descripcion_marawa">
+          <h5><i class="fa-solid fa-quote-left fa-2xl" style="opacity: 60%;"></i> En MarawaHomes los arrendadores tienen
+            un largo camino de
+            experiencia verificada para darle a sus
+            clientes a encontrar su hogar ideal, asegurando un servicio personal y eficiente.</h5>
+        </div>
+      </div>
+      <hr>
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col-4 px-5">
+            <div class="row py-4">
+              <i class="fa-solid fa-user-tie text-center fa-2xl"></i>
             </div>
+            <div class="row">
+              <h5 class="text-center">Industria Profesional</h5>
+              <p>Nuestros arrendadores profesionales, estan equipados con experiencia y conocimiento necesario
+                para manejar tu interes algun inmueble en todo Chile.</p>
+            </div>
+          </div>
+          <div class="col-4 px-5">
+            <div class="row py-4"><i class="fa-solid fa-award text-center fa-2xl"></i></div>
+            <div class="row">
+              <h5 class="text-center">Expertos en el Mercado</h5>
+              <p>MarawaHomes, no solo tiene su sede en Santiago de Chile: conocemos todo el territorio y podemos
+                brindar
+                orientacion sobre vecindarios en cualquier comuna del país.</p>
+            </div>
+          </div>
+          <div class="col-4 px-5">
+            <div class="row py-4"><i class="fa-solid fa-ranking-star text-center fa-2xl"></i></div>
+            <div class="row">
+              <h5 class="text-center">Compromiso Integral</h5>
+              <p>Que tu experiencia encontrando un nuevo hogar, te haga sentir cómodo y
+                confiado, por lo que puedes contactar a nuestro servicio al cliente en cualquier momento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--SERVICIO PERSONALIZADO SMALL-->
+  <div class="servicio_personalizado_small d-sm-none d-lg-none d-xl-none">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 text-center">
+          <h2>SERVICIO CONFIABLE <i class="fa-solid fa-award text-center fa-2xl"></i></h2>
+        </div>
+        <div class="col-sm-12 col-md-12 pt-3 descripcion_marawa">
+          <h5>En MarawaHomes los arrendadores tienen un largo camino de experiencia verificada para darle a sus
+            clientes a encontrar su hogar ideal, asegurando un servicio personal y eficiente.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--CIUDADES-->
+  <div class="d-none d-sm-block d-sm-none d-md-block" style="background-color: #2A3335;">
+    <div class="container text-light py-5 ciudades">
+      <div class="text-center pb-5">
+        <h2>EXPLORA NUESTRAS PRINCIPALES CIUDADES</h2>
+      </div>
+      <div class="row py-3">
+        <!--Santiago-->
+        <div class="col-8">
+          <h4 class="text-center">Santiago</h4>
+          <a href="/all_inmuebles/?buscar=RM">
+            <img
+              src="https://www.diariodesantiago.es/wp-content/uploads/2024/05/vista-panoramica-de-la-ciudad-de-santiago-de-chile-2024-05-01.jpg"
+              class="responsive w-100" alt="">
           </a>
         </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <!--SERVICIO PERSONALIZADO LARGE-->
-    <div class="servicio_personalizado d-none d-sm-block d-sm-none d-md-block">
-      <div class="container pt-5">
-        <div class="row">
-          <div class="col ps-5">
-            <h2>SERVICIO CONFIABLE <i class="fa-solid fa-award text-center fa-2xl"></i></h2>
-          </div>
-          <div class="col-4 pe-5 descripcion_marawa">
-            <h5>En MarawaHomes los arrendadores tienen un largo camino de experiencia verificada para darle a sus
-              clientes a encontrar su hogar ideal, asegurando un servicio personal y eficiente.</h5>
-          </div>
+        <!--Viña-->
+        <div class="col-4">
+          <h4 class="text-center">Viña</h4>
+          <a href="/all_inmuebles/?buscar=vi%C3%B1a">
+            <img src="https://www.playasdechile.com/wp-content/uploads/2023/05/playas-vina-del-mar.jpg"
+              class="responsive w-100" alt="">
+          </a>
         </div>
-        <hr>
-        <div class="container pt-3">
-          <div class="row">
-            <div class="col-4 px-5">
-              <div class="row py-4">
-                <i class="fa-solid fa-user-tie text-center fa-2xl"></i>
-              </div>
-              <div class="row">
-                <h5 class="text-center">Industria Profesional</h5>
-                <p>Nuestros arrendadores profesionales, estan equipados con la experiencia y el conocimiento necesario
-                  para manejar tu interes algun inmueble a lo largo de todo Chile.</p>
-              </div>
-            </div>
-            <div class="col-4 px-5">
-              <div class="row py-4"><i class="fa-solid fa-award text-center fa-2xl"></i></div>
-              <div class="row">
-                <h5 class="text-center">Expertos en el Mercado</h5>
-                <p>MarawaHomes, no solo tiene su sede en Santiago de Chile: conocemos todo el territorio y podemos
-                  brindar
-                  orientacion sobre vecindarios en cualquier comuna del país.</p>
-              </div>
-            </div>
-            <div class="col-4 px-5">
-              <div class="row py-4"><i class="fa-solid fa-ranking-star text-center fa-2xl"></i></div>
-              <div class="row">
-                <h5 class="text-center">Compromiso Integral</h5>
-                <p>Queremos que tu experiencia encontrando un nuevo hogar, te haga sentir cómodo y confiado, por lo que
-                  puedes contactar a nuestro servicio al cliente en cualquier momento.</p>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="row">
+        <!--La Serena-->
+        <div class="col-4">
+          <h4 class="text-center">La Serena</h4>
+          <a href="/all_inmuebles/?buscar=La+Serena">
+            <img src="https://www.playasdechile.com/wp-content/uploads/2023/09/playa-el-faro-la-serena.jpg"
+              class="responsive w-100" alt="">
+          </a>
+        </div>
+        <!--Concepcion-->
+        <div class="col-4">
+          <h4 class="text-center">Concepción</h4>
+          <a href="/all_inmuebles/?buscar=Concepci%C3%B3n">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Gran_Concepci%C3%B3n.jpg"
+              class="responsive w-100" alt="">
+          </a>
+        </div>
+        <!--Arica-->
+        <div class="col-4">
+          <h4 class="text-center">Arica</h4>
+          <a href="/all_inmuebles/?buscar=Arica">
+            <img src="https://chileestuyo.cl/wp-content/uploads/2020/03/Morro-de-Arica.jpg" class="responsive w-100"
+              alt="">
+          </a>
         </div>
       </div>
     </div>
-    <!--SERVICIO PERSONALIZADO SMALL-->
-    <div class="servicio_personalizado_small d-sm-none d-lg-none d-xl-none">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 text-center">
-            <h2>SERVICIO CONFIABLE <i class="fa-solid fa-award text-center fa-2xl"></i></h2>
-          </div>
-          <div class="col-sm-12 col-md-12 pt-3 descripcion_marawa">
-            <h5>En MarawaHomes los arrendadores tienen un largo camino de experiencia verificada para darle a sus
-              clientes a encontrar su hogar ideal, asegurando un servicio personal y eficiente.</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--CIUDADES-->
-    <div style="background-color: #17202a;">
-      <div class="container text-light py-5 ciudades">
-        <div class="text-center pb-5">
-          <h2>PRINCIPALES CIUDADES</h2>
-        </div>
-        <div class="row py-3">
-          <!--Santiago-->
-          <div class="col-8">
-            <h4 class="text-center">Santiago</h4>
-            <a href="/all_inmuebles/?buscar=RM">
-              <img
-                src="https://www.diariodesantiago.es/wp-content/uploads/2024/05/vista-panoramica-de-la-ciudad-de-santiago-de-chile-2024-05-01.jpg"
-                class="responsive w-100" alt="">
-            </a>
-          </div>
-          <!--Viña-->
-          <div class="col-4">
-            <h4 class="text-center">Viña</h4>
-            <a href="/all_inmuebles/?buscar=vi%C3%B1a">
-              <img src="https://www.playasdechile.com/wp-content/uploads/2023/05/playas-vina-del-mar.jpg"
-                class="responsive w-100" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="row">
-          <!--La Serena-->
-          <div class="col-4">
-            <h4 class="text-center">La Serena</h4>
-            <a href="/all_inmuebles/?buscar=La+Serena">
-              <img src="https://www.playasdechile.com/wp-content/uploads/2023/09/playa-el-faro-la-serena.jpg"
-                class="responsive w-100" alt="">
-            </a>
-          </div>
-          <!--Concepcion-->
-          <div class="col-4">
-            <h4 class="text-center">Concepción</h4>
-            <a href="/all_inmuebles/?buscar=Concepci%C3%B3n">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Gran_Concepci%C3%B3n.jpg"
-                class="responsive w-100" alt="">
-            </a>
-          </div>
-          <!--Arica-->
-          <div class="col-4">
-            <h4 class="text-center">Arica</h4>
-            <a href="/all_inmuebles/?buscar=Arica">
-              <img src="https://chileestuyo.cl/wp-content/uploads/2020/03/Morro-de-Arica.jpg" class="responsive w-100"
-                alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endblock %}
+  </div>
+  {% endblock %}
 </body>
 
 </html>

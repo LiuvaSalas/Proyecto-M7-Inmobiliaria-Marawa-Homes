@@ -25,7 +25,22 @@ class RegistroUsuarioForm(forms.ModelForm):
             "correo_electronico",
             "tipo_de_usuario",
             "password",
+            "enlace_whatsapp",
+            "enlace_correo"
         ]
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de usuario'}),
+            'rut': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'RUT'}),
+            'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
+            'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dirección'}),
+            'telefono_personal': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono personal'}),
+            'correo_electronico': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Correo electrónico'}),
+            'tipo_de_usuario': forms.Select(attrs={'class': 'form-control'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}),
+            'enlace_whatsapp': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enlace de WhatsApp'}),
+            'enlace_correo': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enlace de correo electrónico'}),
+        }
 
     def save(self, commit=True):
         usuario = super().save(commit=False)

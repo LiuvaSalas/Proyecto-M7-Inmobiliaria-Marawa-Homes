@@ -21,4 +21,6 @@ urlpatterns = [
         views.caracteristica_inmueble,
         name="caracteristica_inmueble",
     ),
+    path("envio_exitoso/", views.envio_exitoso, name="envio_exitoso"),
+    path("contacto/", views.contacto, name="contacto"),
 ]

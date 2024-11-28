@@ -1,7 +1,7 @@
 from asyncio.windows_events import NULL
 from django.db import models
 from usuarios.models import Usuario
-from django.db import connection
+import uuid
 
 
 class Region(models.Model):
@@ -64,6 +64,17 @@ class Inmueble(models.Model):
     imagen4 = models.URLField(default=None, null=True, blank=True)
     imagen5 = models.URLField(default=None, null=True, blank=True)
 
-
     def __str__(self):
         return self.nombre
+
+
+class ContactForm(models.Model):
+    contact_form_uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True
+    )
+    customer_email = models.EmailField()
+    customer_name = models.CharField(max_length=64)
+    message = models.TextField()
+
+    def __str__(self):
+        return f"{self.customer_name} - {self.customer_email}"

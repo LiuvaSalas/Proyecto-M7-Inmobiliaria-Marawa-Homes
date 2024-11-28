@@ -54,3 +54,35 @@ def inmuebles_region_metropolitana(request):
         respuesta = inmuebles_disponibles.exists()
     contexto = {"inmuebles_disponibles": inmuebles_disponibles, "respuesta": respuesta}
     return render(request, "region_metropolitana.html", contexto)
+
+def inmuebles_los_lagos(request):
+    queryset = request.GET.get("buscar")
+    print(queryset)
+    inmuebles_disponibles = Inmueble.objects.filter(arrendada=False, region=14)
+    if queryset:
+        inmuebles_disponibles = Inmueble.objects.filter(
+            Q(comuna__nombre__icontains=queryset) | Q(descripcion__icontains=queryset),
+            arrendada=False,
+            region=8,
+        ).distinct()
+        respuesta = inmuebles_disponibles.exists()
+    else:
+        respuesta = inmuebles_disponibles.exists()
+    contexto = {"inmuebles_disponibles": inmuebles_disponibles, "respuesta": respuesta}
+    return render(request, "los_lagos.html", contexto)
+
+def inmuebles_valparaiso(request):
+    queryset = request.GET.get("buscar")
+    print(queryset)
+    inmuebles_disponibles = Inmueble.objects.filter(arrendada=False, region=7)
+    if queryset:
+        inmuebles_disponibles = Inmueble.objects.filter(
+            Q(comuna__nombre__icontains=queryset) | Q(descripcion__icontains=queryset),
+            arrendada=False,
+            region=8,
+        ).distinct()
+        respuesta = inmuebles_disponibles.exists()
+    else:
+        respuesta = inmuebles_disponibles.exists()
+    contexto = {"inmuebles_disponibles": inmuebles_disponibles, "respuesta": respuesta}
+    return render(request, "valparaiso.html", contexto)

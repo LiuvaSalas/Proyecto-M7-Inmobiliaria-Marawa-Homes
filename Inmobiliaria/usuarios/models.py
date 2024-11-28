@@ -13,6 +13,8 @@ class Usuario(models.Model):
     tipo_de_usuario = models.ForeignKey(
         Group, on_delete=models.SET_NULL, null=True, blank=True
     )
+    enlace_whatsapp = models.CharField(default=None, null=True, blank=True)
+    enlace_correo = models.CharField(default=None, null=True, blank=True)
 
     def __str__(self):
         # return f"{self.nombres} {self.apellidos}"
