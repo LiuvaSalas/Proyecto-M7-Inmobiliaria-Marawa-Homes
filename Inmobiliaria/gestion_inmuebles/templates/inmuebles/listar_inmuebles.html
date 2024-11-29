@@ -20,29 +20,60 @@
         <button type="button" class="btn btn-dark">Agregar nuevo inmueble</button>
       </a>
     </div>
-    {% for inmuebles in inmuebles_general %}
-    <div class="card mb-3" style="max-width: 540px">
-      <div class="row g-0 py-2">
-        <div class="col-md-4">
-          <img src="{{ inmuebles.imagen_portada }}" class="img-fluid rounded-start" alt="..." />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ inmuebles.nombre }}</h5>
-            <p class="card-text">
-              {{inmuebles.region}}, {{inmuebles.comuna}}
-            </p>
-            <p class="card-text">{{inmuebles.direccion}}</p>
-            <p class="card-text">{{inmuebles.descripcion}}</p>
-            <a href="{% url 'detalleInmueble' inmuebles.id %}">
-              <button type="button" class="btn btn-dark">Modificar</button></a>
-            <a href="{% url 'borrarInmueble' inmuebles.id %}">
-              <button type="button" class="btn btn-dark">Eliminar</button></a>
+    <div class="row pt-3">
+      <div class="col-6">
+        <h4 class="text-center">Inmuebles sin arrendar</h4>
+        {% for inmuebles in inmuebles_sin_arrendar %}
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row g-0 py-2">
+            <div class="col-md-4">
+              <img src="{{ inmuebles.imagen_portada }}" class="img-fluid rounded-start" alt="..." />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ inmuebles.nombre }}</h5>
+                <p class="card-text">
+                  {{inmuebles.region}}, {{inmuebles.comuna}}
+                </p>
+                <p class="card-text">{{inmuebles.direccion}}</p>
+                <p class="card-text">{{inmuebles.descripcion}}</p>
+                <a href="{% url 'detalleInmueble' inmuebles.id %}">
+                  <button type="button" class="btn btn-dark">Modificar</button></a>
+                <a href="{% url 'borrarInmueble' inmuebles.id %}">
+                  <button type="button" class="btn btn-dark">Eliminar</button></a>
+              </div>
+            </div>
           </div>
         </div>
+        {% endfor %}
+      </div>
+      <div class="col-6">
+        <h4 class="text-center">Inmuebles arrendados</h4>
+        {% for inmuebles in inmuebles_arrendados %}
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row g-0 py-2">
+            <div class="col-md-4">
+              <img src="{{ inmuebles.imagen_portada }}" class="img-fluid rounded-start" alt="..." />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ inmuebles.nombre }}</h5>
+                <p class="card-text">
+                  {{inmuebles.region}}, {{inmuebles.comuna}}
+                </p>
+                <p class="card-text">{{inmuebles.direccion}}</p>
+                <p class="card-text">{{inmuebles.descripcion}}</p>
+                <a href="{% url 'detalleInmueble' inmuebles.id %}">
+                  <button type="button" class="btn btn-dark">Modificar</button></a>
+                <a href="{% url 'borrarInmueble' inmuebles.id %}">
+                  <button type="button" class="btn btn-dark">Eliminar</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
-    {% endfor %}
   </div>
   {% endblock %}
 </body>

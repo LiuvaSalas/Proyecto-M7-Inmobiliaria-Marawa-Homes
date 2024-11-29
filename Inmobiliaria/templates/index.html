@@ -9,14 +9,15 @@
   <title>Document</title>
   <!--Enlace archivo css en carpeta static-->
   <link rel="stylesheet" type="text/css" href="{% static 'base/assets/css/styles.css' %}" />
+  <!--Enlace Jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
   {% block content %}
   <!--IMAGEN MOTIVACIONAL-->
   <div class="texto_sobreimagen d-none d-sm-block d-sm-none d-md-block">
-    <img src="https://i.pinimg.com/736x/82/74/14/827414e16fd6f79bbcc41cc2bed85d8d.jpg" class="d-block w-100 img-fluid"
-      alt="">
+    <img src="{% static 'base/assets/img/motivacional.jpg' %}" class="d-block w-100 img-fluid" alt="">
     <div class="centrado d-none d-sm-block d-sm-none d-md-block">
       <h3>Este puede ser tu nuevo hogar</h3>
     </div>
@@ -43,7 +44,39 @@
           <div class="col-md-6 col-sm-12 col-xl-4 my-2 px-4 justify-content-center">
             <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
               <div class="card card-postre">
-                <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">
+                <!-- <img src="{{ inmuebles.imagen_portada }}" class="card-img-top responsive" alt="...">-->
+                <div id="carouselExample{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{ inmuebles.imagen_portada }}" class="d-block w-100 img-fluid" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ inmuebles.imagen1 }}" class="d-block w-100 img-fluid" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ inmuebles.imagen2 }}" class="d-block w-100 img-fluid" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ inmuebles.imagen3 }}" class="d-block w-100 img-fluid" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ inmuebles.imagen4 }}" class="d-block w-100 img-fluid" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ inmuebles.imagen5 }}" class="d-block w-100 img-fluid" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button"
+                    data-bs-target="#carouselExample{{ forloop.counter }}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button"
+                    data-bs-target="#carouselExample{{ forloop.counter }}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
               </div>
             </a>
             <a href="{% url 'caracteristica_inmueble' inmuebles.id %}">
@@ -202,6 +235,10 @@
     </div>
   </div>
   {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRkNwN8b6aqc1E6p1y6MTmM7iDt21xA4Jb4F0p41K"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'base/assets/js/query.js' %}"></script>
 </body>
 
 </html>

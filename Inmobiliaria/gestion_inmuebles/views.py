@@ -23,7 +23,9 @@ def home(request):
 @login_required
 def listar_inmuebles(request):
     inmuebles_general = Inmueble.objects.filter(arrendador__user=request.user)
-    contexto = {"inmuebles_general": inmuebles_general}
+    inmuebles_arrendados = inmuebles_general.filter(arrendada = True)
+    inmuebles_sin_arrendar = inmuebles_general.filter(arrendada = False)
+    contexto = {"inmuebles_general": inmuebles_general,"inmuebles_arrendados": inmuebles_arrendados,"inmuebles_sin_arrendar":inmuebles_sin_arrendar}
     return render(request, "inmuebles/listar_inmuebles.html", contexto)
 
 
