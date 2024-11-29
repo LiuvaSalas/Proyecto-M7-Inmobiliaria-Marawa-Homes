@@ -23,9 +23,28 @@
     <p>
       <strong>Inmuebles Sin Arrendar:</strong> {{ inmuebles_sin_arrendar }}
     </p>
+    <p>
+      <strong>Precio mensual promedio de Inmuebles:</strong> {{ promedio_precio_inmuebles }}
+    </p>
+    <h3 class="text-center">RESUMEN DE INFORMACIÓN</h3>
+    <br>
+    <div class="row text-center">
+      <div class="col-4 col-sm-12 col-xl-4">
+        <h5>Inmuebles Arrendados vs Sin Arrendar</h5>
+        <img src="data:image/png;base64,{{ graph_inmuebles }}" style="width: 100%;" alt="Gráfico de Inmuebles" />
+      </div>
+      <div class="col-4 col-sm-12 col-xl-4">
+        <h5>Inmuebles por Tipo de Inmueble</h5>
+        <img src="data:image/png;base64,{{ graph_tipo_inmuebles }}" style="width: 100%;"
+          alt="Número de Inmuebles por Tipo">
+      </div>
+      <div class="col-4 col-sm-12 col-xl-4">
+        <h5>Precio promedio de Inmuebles por Tipo</h5>
+        <img src="data:image/png;base64,{{ graph_precio_tipo_inmuebles }}" style="width: 100%;"
+          alt="Precio Promedio de Inmuebles por Tipo">
+      </div>
+    </div>
 
-    <h4>Gráfico de Inmuebles Arrendados vs Sin Arrendar</h4>
-    <img src="data:image/png;base64,{{ graph_inmuebles }}" alt="Gráfico de Inmuebles" />
   </div>
   {% endblock %}
 </body>

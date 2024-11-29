@@ -8,10 +8,12 @@
 
 /*INDEX - BIENVENIDOS*/
 .texto_sobreimagen img {
+  justify-self: center;
   position: relative;
   display: block;
   text-align: center;
   width: auto;
+  max-width: 1700px;
   height: 500px;
 }
 

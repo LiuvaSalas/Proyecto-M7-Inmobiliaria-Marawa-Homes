@@ -19,18 +19,30 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-10">
-          <h1>Hola {{ perfil_usuario.nombres }},</h1>
-        </div>
-        <div class="col-2 align-self-center modificar_perfil_link">
-          <i class="fa-regular fa-pen-to-square"></i><a href="{% url 'modificar_perfil' usuario.username %}">Modificar
-            Perfil</a>
+          <h3>Hola {{ perfil_usuario.nombres }},</h3>
         </div>
       </div>
       <br>
-      <h3>Datos personales</h3>
-      <p><strong>Dirección:</strong> {{ perfil_usuario.direccion }}</p>
-      <p><strong>Telefono Personal:</strong> {{ perfil_usuario.telefono_personal }}</p>
-      <p><strong>Correo Electrónico:</strong> {{ perfil_usuario.correo_electronico }}</p>
+      <div>
+        <h4><i class="fa-regular fa-id-card"></i> Informacion Personal</h4>
+        <i>No editable...</i>
+      </div>
+      <div class="pt-3">
+        <p><strong>Nombre:</strong> {{ perfil_usuario.nombres }} {{ perfil_usuario.apellidos }}</p>
+        <p><strong>RUT:</strong> {{ perfil_usuario.rut }}</p>
+        <p><strong>Usuario:</strong> {{ usuario.username }}</p>
+      </div>
+      <div class="pt-3 modificar_perfil_link">
+        <h4><i class="fa-regular fa-address-book"></i> Informacion General <a
+            href="{% url 'modificar_perfil' usuario.username %}">
+            <i class="fa-regular fa-pen-to-square fa-xs"></i>
+          </a></h4>
+      </div>
+      <div>
+        <p><strong>Dirección:</strong> {{ perfil_usuario.direccion }}</p>
+        <p><strong>Telefono Personal:</strong> {{ perfil_usuario.telefono_personal }}</p>
+        <p><strong>Correo Electrónico:</strong> {{ perfil_usuario.correo_electronico }}</p>
+      </div>
     </div>
   </div>
   {%endblock%}

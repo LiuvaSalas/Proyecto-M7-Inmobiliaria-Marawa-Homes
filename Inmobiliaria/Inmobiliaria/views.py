@@ -9,6 +9,7 @@ def index(request):
     inmuebles_destacados = Inmueble.objects.filter(arrendada=False).order_by(
         "precio_mensual"
     )[:3]
+
     contexto = {
         "inmuebles_disponibles": inmuebles_disponibles,
         "inmuebles_destacados": inmuebles_destacados,
@@ -29,7 +30,8 @@ def all_inmuebles(request):
             Q(comuna__nombre__icontains=queryset)
             | Q(descripcion__icontains=queryset)
             | Q(region__nombre__icontains=queryset)
-            | Q(tipo_inmueble__tipo_de_inmueble__icontains=queryset)| Q(region__identificador__icontains=queryset),
+            | Q(tipo_inmueble__tipo_de_inmueble__icontains=queryset)
+            | Q(region__identificador__icontains=queryset),
             arrendada=False,
         ).distinct()
         respuesta = inmuebles_disponibles.exists()
@@ -55,6 +57,7 @@ def inmuebles_region_metropolitana(request):
     contexto = {"inmuebles_disponibles": inmuebles_disponibles, "respuesta": respuesta}
     return render(request, "region_metropolitana.html", contexto)
 
+
 def inmuebles_los_lagos(request):
     queryset = request.GET.get("buscar")
     print(queryset)
@@ -70,6 +73,7 @@ def inmuebles_los_lagos(request):
         respuesta = inmuebles_disponibles.exists()
     contexto = {"inmuebles_disponibles": inmuebles_disponibles, "respuesta": respuesta}
     return render(request, "los_lagos.html", contexto)
+
 
 def inmuebles_valparaiso(request):
     queryset = request.GET.get("buscar")

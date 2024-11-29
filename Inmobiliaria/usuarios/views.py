@@ -77,9 +77,13 @@ def modificar_perfil(request, username):
         nueva_direccion = request.POST.get("nueva_direccion")
         nuevo_telefono_personal = request.POST.get("nuevo_telefono_personal")
         nuevo_correo_electronico = request.POST.get("nuevo_correo_electronico")
+        nuevo_enlace_whatsapp = request.POST.get("nuevo_enlace_whatsapp")
+        nuevo_enlace_correo = request.POST.get("nuevo_enlace_correo")
         perfil_usuario.direccion = nueva_direccion
         perfil_usuario.telefono_personal = nuevo_telefono_personal
         perfil_usuario.correo_electronico = nuevo_correo_electronico
+        perfil_usuario.enlace_whatsapp = nuevo_enlace_whatsapp
+        perfil_usuario.nuevo_enlace_correo = nuevo_enlace_correo
         perfil_usuario.save()
     return render(
         request,

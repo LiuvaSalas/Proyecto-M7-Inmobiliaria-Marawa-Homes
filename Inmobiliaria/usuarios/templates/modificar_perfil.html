@@ -10,29 +10,57 @@
 <body>
   {%block content%}
   <div class="container">
-    <h5>Editar Campos:</h5>
+    <div class="pb-5">
+      <a class="btn btn-light text-black" style="background-color: #fff; border: none;"
+        href="{% url 'perfil_usuario' username=user.username %}" role="button"><i
+          class="fa-solid fa-left-long fa-2xl pe-2"></i> Volver</a>
+    </div>
+    <h4>Editar Información:</h4>
   </div>
 
   <!-- Formulario para modificar un campo -->
   <form method="post" action="{% url 'modificar_perfil' usuario.username %}">
     {% csrf_token %}
-    <div>
-      <div class="container">
+    <div class="container">
+      <div style="max-width: 50%;">
         <ul>
-          <li>
-            <label for="nueva_direccion">Dirección</label>
-            <input type="text" id="direccion" name="nueva_direccion" value="{{ perfil_usuario.direccion }}">
-          </li>
-          <li>
-            <label for="nuevo_telefono_personal">Telefono Personal</label>
-            <input type="text" id="telefono" name="telefono_personal" value="{{ perfil_usuario.telefono_personal }}">
-          </li>
-          <li>
-            <label for="nuevo_correo_electronico">Correo Electrónico</label>
-            <input type="email" id="correo" name="correo_electronico" value="{{ perfil_usuario.correo_electronico }}">
-          </li>
+          <ol class="pb-lg-3">
+            <label for="nueva_direccion">
+              <h5>Dirección</h5>
+            </label>
+            <input type="text" class="form-control" id="direccion" name="nueva_direccion"
+              value="{{ perfil_usuario.direccion }}">
+          </ol>
+          <ol class="pb-lg-3">
+            <label for="nuevo_telefono_personal">
+              <h5>Telefono Personal</h5>
+            </label>
+            <input type="text" class="form-control" id="telefono" name="telefono_personal"
+              value="{{ perfil_usuario.telefono_personal }}">
+          </ol>
+          <ol class="pb-lg-3">
+            <label for="nuevo_correo_electronico">
+              <h5>Correo Electrónico</h5>
+            </label>
+            <input type="email" class="form-control" id="correo" name="correo_electronico"
+              value="{{ perfil_usuario.correo_electronico }}">
+          </ol>
+          <ol class="pb-lg-3">
+            <label for="nuevo_enlace_whatsapp">
+              <h5>Enlace a Whatsapp</h5>
+            </label>
+            <input type="text" class="form-control" id="enlace_whatsapp" name="enlace_whatsapp"
+              value=" {{ perfil_usuario.enlace_whatsapp }}">
+          </ol>
+          <ol>
+            <label for="nuevo_enlace_correo">
+              <h5>Enlace a Correo</h5>
+            </label>
+            <input type="text" class="form-control" id="enlace_correo" name="enlace_correo"
+              value="{{ perfil_usuario.enlace_correo }}">
+          </ol>
         </ul>
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="btn btn-light">Guardar cambios</button>
       </div>
     </div>
 

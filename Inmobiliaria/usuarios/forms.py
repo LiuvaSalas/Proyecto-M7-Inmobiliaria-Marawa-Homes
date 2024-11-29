@@ -38,8 +38,8 @@ class RegistroUsuarioForm(forms.ModelForm):
             'correo_electronico': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Correo electrónico'}),
             'tipo_de_usuario': forms.Select(attrs={'class': 'form-control'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}),
-            'enlace_whatsapp': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enlace de WhatsApp'}),
-            'enlace_correo': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enlace de correo electrónico'}),
+            'enlace_whatsapp': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enlace de WhatsApp - example: https://wa.me/123456789 sin simbolo +'}),
+            'enlace_correo': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enlace de correo electrónico - example: mailto:elcorreoquequieres@correo.com"'}),
         }
 
     def save(self, commit=True):

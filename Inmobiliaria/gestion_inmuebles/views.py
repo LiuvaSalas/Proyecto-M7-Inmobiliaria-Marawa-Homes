@@ -13,6 +13,7 @@ from .forms import (
 )
 from Inmobiliaria.views import index
 from django.http import HttpResponseRedirect
+from django.db.models import Avg
 
 
 def home(request):
@@ -107,29 +108,77 @@ def dashboard(request):
     total_inmuebles = inmuebles_general.count()
     inmuebles_arrendados = inmuebles_general.filter(arrendada=True).count()
     inmuebles_sin_arrendar = total_inmuebles - inmuebles_arrendados
+    promedio_precio_inmuebles = round(inmuebles_general.aggregate(Avg('precio_mensual'))['precio_mensual__avg'] or 0)
+    inmuebles_parcela = inmuebles_general.filter(tipo_inmueble__tipo_de_inmueble = "Parcela").count()
+    inmuebles_casa = inmuebles_general.filter(tipo_inmueble__tipo_de_inmueble = "Casa").count()
+    inmuebles_departamento = inmuebles_general.filter(tipo_inmueble__tipo_de_inmueble = "Departamento").count()
+    promedio_precio_parcela = inmuebles_general.filter(tipo_inmueble__tipo_de_inmueble="Parcela").aggregate(Avg('precio_mensual'))['precio_mensual__avg'] or 0
+    promedio_precio_casa = inmuebles_general.filter(tipo_inmueble__tipo_de_inmueble="Casa").aggregate(Avg('precio_mensual'))['precio_mensual__avg'] or 0
+    promedio_precio_departamento = inmuebles_general.filter(tipo_inmueble__tipo_de_inmueble="Departamento").aggregate(Avg('precio_mensual'))['precio_mensual__avg'] or 0
 
-    fig, ax = plt.subplots(1, 1, figsize=(8, 6))
-
-    ax.bar(
+    # Imuebles arrendados/Inmuebles sin arrendar
+    fig1, ax1 = plt.subplots(1, 1, figsize=(8, 6))
+    bars1 = ax1.bar(
         ["Arrendados", "Sin Arrendar"],
         [inmuebles_arrendados, inmuebles_sin_arrendar],
-        color=["blue", "orange"],
+        color=["#85A98F", "#525B44"],
     )
-    ax.set_title("Inmuebles Arrendados vs Sin Arrendar")
-    ax.set_ylabel("Cantidad")
+    ax1.set_title("Inmuebles Arrendados vs Sin Arrendar")
+    ax1.set_ylabel("Cantidad")
 
-    buf = BytesIO()
-    plt.savefig(buf, format="png")
-    buf.seek(0)
+    # Añadir etiquetas a cada barra
+    ax1.bar_label(bars1, padding=3, fmt='%.0f', fontsize=18)
 
-    image_base64 = base64.b64encode(buf.getvalue()).decode("utf-8")
+    buf1 = BytesIO()
+    plt.savefig(buf1, format="png")
+    buf1.seek(0)
+    graph1_base64 = base64.b64encode(buf1.getvalue()).decode("utf-8")
+    buf1.close()
+
+    # Imuebles por tipo de inmueble
+    fig2, ax2 = plt.subplots(1, 1, figsize=(8, 6))
+    bars2 = ax2.bar(
+        ["Parcela", "Casa", "Departamento"],
+        [inmuebles_parcela, inmuebles_casa, inmuebles_departamento],
+        color=["#355F2E", "#F4E0AF", "#F9C0AB"],
+    )
+    ax2.set_title("Número de Inmuebles por Tipo")
+    ax2.set_ylabel("Cantidad")
+
+    # Añadir etiquetas a cada barra
+    ax2.bar_label(bars2, padding=3, fmt='%.0f', fontsize=18)
+
+    buf2 = BytesIO()
+    plt.savefig(buf2, format="png")
+    buf2.seek(0)
+    graph2_base64 = base64.b64encode(buf2.getvalue()).decode("utf-8")
+    buf2.close()
+
+    # Precio por tipo de inmueble
+    fig3, ax3 = plt.subplots(1, 1, figsize=(8, 6))
+    ax3.bar(
+        ["Parcela", "Casa", "Departamento"],
+        [promedio_precio_parcela, promedio_precio_casa, promedio_precio_departamento],
+        color=["#355F2E", "#F4E0AF", "#F9C0AB"],
+    )
+    ax3.set_title("Precio Promedio por Tipo")
+    ax3.set_ylabel("Precio")
+
+    buf3 = BytesIO()
+    plt.savefig(buf3, format="png")
+    buf3.seek(0)
+    graph3_base64 = base64.b64encode(buf3.getvalue()).decode("utf-8")
+    buf3.close()
 
     contexto = {
         "inmuebles_general": inmuebles_general,
         "total_inmuebles": total_inmuebles,
         "inmuebles_arrendados": inmuebles_arrendados,
         "inmuebles_sin_arrendar": inmuebles_sin_arrendar,
-        "graph_inmuebles": image_base64,
+        "graph_inmuebles": graph1_base64,
+        "graph_tipo_inmuebles": graph2_base64,
+        "graph_precio_tipo_inmuebles": graph3_base64,
+        "promedio_precio_inmuebles": promedio_precio_inmuebles,
     }
 
     return render(request, "inmuebles/dashboard.html", contexto)
